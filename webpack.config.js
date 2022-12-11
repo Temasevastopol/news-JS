@@ -8,9 +8,15 @@ const baseConfig = {
     mode: 'development',
     module: {
         rules: [
+            { test: /\.([cm]?ts|tsx)$/, loader: 'ts-loader' },
             {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.js$/,
+                enforce: 'pre',
+                use: ['source-map-loader'],
             },
         ],
     },
